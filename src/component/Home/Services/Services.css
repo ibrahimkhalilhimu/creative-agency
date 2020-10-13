@@ -1,0 +1,9 @@
+.card img{
+    width: 74px;
+}
+.services-container .card{
+    border: none;
+}
+.services-container .card:hover{
+    box-shadow: 5px 5px 10px;
+}
