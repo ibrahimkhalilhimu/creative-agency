@@ -1,14 +1,20 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
+const ServicesCard = (props) => {
+const {img,title,description,id} = props.data
+  // const history = useHistory()
 
-const ServicesCard = ({data}) => {
-    console.log(data);
+  //  const handleClick=(id)=>{
+  //    history.push(`/${id}`)
+  //  }
+   
     return (
       
-      <div className="card">
-    <img  src={data.img} className="mx-auto" alt="..."/>
+      <div  className="card">
+    <img  src={img} className="mx-auto" alt="..."/>
     <div className="card-body text-center">
-    <h5 className="card-title">{data.title}</h5>
-    <p className="card-text text-secondary">{data.description}</p>
+    <h5 className="card-title">{title}</h5>
+    <p className="card-text text-secondary">{description}</p>
     </div> 
     </div>
        

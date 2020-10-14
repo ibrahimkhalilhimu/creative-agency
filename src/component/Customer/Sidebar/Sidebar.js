@@ -6,28 +6,28 @@ import { faShoppingCart, faStore,faComment } from '@fortawesome/free-solid-svg-i
 
 const Sidebar = () => {
     return (
-        <div className="container">
+       
              <div className="sidebar d-flex flex-column justify-content-between col-md-2 py-5 px-4" style={{height:"100%"}}>
             <ul className="list-unstyled">
                 <li>
-                    <Link to="/doctor/dashboard" className="text-dark">
+                    <Link to="/order" className="text-dark">
                         <FontAwesomeIcon icon={faShoppingCart} /> <span>Order</span> 
                     </Link>
                 </li>
                 <li>
-                    <Link to="/doctor/appointment" className="text-dark">
+                    <Link to="/services" className="text-dark">
                         <FontAwesomeIcon icon={faStore} /> <span>Service list</span> 
                     </Link>
                 </li>
                 <li>
-                    <Link to="/doctor/patients" className="text-dark">
+                    <Link to="/reviews" className="text-dark">
                         <FontAwesomeIcon icon={faComment} /> <span>Review</span>
                     </Link>
                 </li>
             </ul>
             
         </div>
-        </div>
+      
      
     );
 };
