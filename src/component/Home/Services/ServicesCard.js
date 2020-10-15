@@ -1,7 +1,8 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 const ServicesCard = (props) => {
-const {img,title,description,id} = props.data
+  console.log(props);
+const {title,description,img,image} = props.data
   // const history = useHistory()
 
   //  const handleClick=(id)=>{
@@ -9,13 +10,19 @@ const {img,title,description,id} = props.data
   //  }
    
     return (
-      
+      <div className="col-md-4 my-2">
       <div  className="card">
-    <img  src={img} className="mx-auto" alt="..."/>
+
+     {  image ? <img style={{width:'74px'}}  className="mx-auto" src={`data:image/png;base64,${image.img}`}/>:
+     <img  src={img} className="mx-auto" alt="..."/>
+     
+     }
+
     <div className="card-body text-center">
     <h5 className="card-title">{title}</h5>
     <p className="card-text text-secondary">{description}</p>
     </div> 
+    </div>
     </div>
        
     );

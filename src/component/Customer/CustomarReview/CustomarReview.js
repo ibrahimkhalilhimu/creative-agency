@@ -44,8 +44,8 @@ const CustomarReview = () => {
                         {errors.company && <span className="text-danger">This field is required</span>}
                     </div>
                     <div className="form-group">
-                        <textarea type="text" ref={register({ required: true })} name="Description" placeholder="Description" cols="30px" rows="10px" className="form-control" />
-                        {errors.Details && <span className="text-danger">This field is required</span>}
+                        <textarea type="text" ref={register({ required: true })} name="description" placeholder="description" cols="30px" rows="10px" className="form-control" />
+                        {errors.description && <span className="text-danger">This field is required</span>}
                     </div>
 
                     <div className="form-group ">

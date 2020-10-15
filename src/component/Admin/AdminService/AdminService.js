@@ -1,12 +1,13 @@
 import React from 'react';
 import ShareNav from '../../Shared/ShareNav/ShareNav';
 import AddminSidebar from '../../Admin/AddminSidebar/AddminSidebar'
+import Sidebar from '../../Customer/Sidebar/Sidebar';
 const AdminService = () => {
     return (
         <section className="container row">
             <ShareNav></ShareNav>
             <div className="col-md-4">
-                <AddminSidebar></AddminSidebar>
+               <Sidebar></Sidebar>
                 </div>
                 <div  className="col-md-8 pt-5">
                 <table class="table table-borderless">

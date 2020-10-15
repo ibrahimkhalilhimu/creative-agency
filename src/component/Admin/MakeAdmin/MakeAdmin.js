@@ -1,5 +1,6 @@
 import React from 'react';
 import { useForm} from "react-hook-form";
+import Sidebar from '../../Customer/Sidebar/Sidebar';
 import ShareNav from '../../Shared/ShareNav/ShareNav';
 import AddminSidebar from '../AddminSidebar/AddminSidebar';
 
@@ -10,7 +11,7 @@ const MakeAdmin = () => {
         <section className="container row">
           <ShareNav></ShareNav>  
           <div className="col-md-4">
-              <AddminSidebar></AddminSidebar>
+              <Sidebar></Sidebar>
           </div>
           <div className="col-md-8 pt-5">
           <form className="" onSubmit={handleSubmit(onSubmit)}>

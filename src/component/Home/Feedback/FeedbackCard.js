@@ -4,7 +4,7 @@ const FeedbackCard = ({info}) => {
   
     return (
         <div className="col-md-4">
-           <div className="card">
+           <div className="card my-3">
                <div className="card-header d-flex  align-items-center">
                    <img style={{width:"50px"}} className="mx-3" src={info.img} alt="" />
                    <div className="pt-4">

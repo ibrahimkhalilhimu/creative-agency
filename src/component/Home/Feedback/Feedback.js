@@ -1,28 +1,19 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import './Feedback.css'
 import FeedbackCard from './FeedbackCard'
+import FeedbackData from '.././../../FakeData/FeedbackData'
 
 const Feedback = () => {
-    const feedbackData = [
-        {
-            name:"Nash Patrik",
-            company:"CEO, Manpol",
-            description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus commodo ipsum duis laoreet maecenas. Feugiat ",
-            img:"https://i.ibb.co/whFz74S/customer-1.png"
-        },
-        {
-            name:"Miriam Barron",
-            company:"CEO, Manpol",
-            description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus commodo ipsum duis laoreet maecenas. Feugiat ",
-            img:"https://i.ibb.co/Ryvcn42/customer-2.png"
-        },
-        {
-            name:"Bria Malone",
-            company:"CEO, Manpol",
-            description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus commodo ipsum duis laoreet maecenas. Feugiat ",
-            img:"https://i.ibb.co/LgVzwyz/customer-3.png"
-        },
-    ]
+    // const feedback = FeedbackData
+ const [feedbackData,setFeedbackData] = useState([])
+
+ useEffect(()=>{
+    fetch('http://localhost:5000/review')
+    .then(res => res.json())
+    .then(data=> 
+        setFeedbackData(data))
+},[])
+
     return (
         <section className="feedback-section my-5">
            <div className="container text-center">
