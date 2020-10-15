@@ -1,17 +1,25 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
+import { UserCardInfo } from '../../../App';
 const ServicesCard = (props) => {
   console.log(props);
-const {title,description,img,image} = props.data
-  // const history = useHistory()
+const [cardInfo,setCardInfo] = useContext(UserCardInfo)
 
-  //  const handleClick=(id)=>{
-  //    history.push(`/${id}`)
-  //  }
+const {title,description,img,image} = props.data
+
+  const history = useHistory()
+
+   const handleClick=()=>{
+     history.push(`/order`)
+   }
+   const handleCardInfo =(title,description,img,image)=>{
+        setCardInfo({title,description,img,image})
+   }
    
     return (
       <div className="col-md-4 my-2">
-      <div  className="card">
+      <div onClick={()=> {handleCardInfo(title,description,img,image);
+        handleClick()}} className="card">
 
      {  image ? <img style={{width:'74px'}}  className="mx-auto" src={`data:image/png;base64,${image.img}`}/>:
      <img  src={img} className="mx-auto" alt="..."/>

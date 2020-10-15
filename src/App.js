@@ -14,15 +14,18 @@ import CustomarServiceList from './component/Customer/CustomarServiceList/Custom
 import AdminService from './component/Admin/AdminService/AdminService';
 import AddService from './component/Admin/AddService/AddService';
 import MakeAdmin from './component/Admin/MakeAdmin/MakeAdmin';
+import PrivateRoute from './component/PrivateRoute/PrivateRoute';
 
 export const UserContext =createContext()
+export const UserCardInfo =createContext()
 
 function App() {
 
   const [loggedInUser,setLoggedInUser] = useState({success:false})
-
+  const [cardInfo,setCardInfo]= useState({})
   return (
     <div className="div">
+      <UserCardInfo.Provider value ={[cardInfo,setCardInfo]}>
     <UserContext.Provider value={[loggedInUser,setLoggedInUser]}>
      <Router>
   
@@ -33,30 +36,35 @@ function App() {
          <Route path="/login">
            <Login></Login>
          </Route>
-         <Route path="/reviews">
+         
+         <PrivateRoute path="/reviews">
            <CustomarReview></CustomarReview>
-         </Route>
-         <Route path="/services">
+         </PrivateRoute>
+         <PrivateRoute path="/services">
            <CustomarServiceList></CustomarServiceList>
-         </Route>
-        < Route exact path="/order">
-           <CustomarOder></CustomarOder>
-         </Route>
-         < Route path="/adminService">
+         </PrivateRoute>
+        
+         < PrivateRoute path="/adminService">
            <AdminService></AdminService>
-         </Route>
-         <Route path="/addService">
+         </PrivateRoute>
+         <PrivateRoute path="/addService">
            <AddService></AddService>
-         </Route>
-         <Route path="/admin">
+         </PrivateRoute>
+         <PrivateRoute path="/admin">
            <MakeAdmin></MakeAdmin>
-         </Route>
+         </PrivateRoute>
+
+         < PrivateRoute  path="/order">
+           <CustomarOder></CustomarOder>
+         </PrivateRoute>
+
          <Route exact path="/">
          <Home></Home>
          </Route>
        </Switch>
      </Router>
     </UserContext.Provider>
+    </UserCardInfo.Provider>
     </div>
   );
 }

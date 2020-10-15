@@ -1,19 +1,39 @@
-import React,{useState} from 'react';
+import React,{useContext, useState} from 'react';
 import ShareNav from '../../Shared/ShareNav/ShareNav';
 import Sidebar from '../Sidebar/Sidebar';
 import { useForm} from "react-hook-form";
 import { useParams } from 'react-router-dom';
 import FakeData from '../../../FakeData/FakeData';
+import { UserCardInfo, UserContext } from '../../../App';
 
 
 
 const CustomarOder = () => {
+    const [cardInfo,setCardInfo]=useContext(UserCardInfo)
+    const [loggedInUser,setLoggedInUser] = useContext(UserContext)
     const { register, handleSubmit, watch, errors } = useForm();
-    const onSubmit = data => console.log(data);
-    // let {id} = useParams();
-    // const dataText = FakeData.find(data=>data.id ==id)
-    // const [homeData,setHomeData]= useState(dataText)
-   
+    const onSubmit = data => {
+        const newData ={...cardInfo, data}
+
+        fetch('http://localhost:5000/addOder',{
+            method:'POST',
+            headers:{ 
+                'Content-Type':'application/json'
+            },
+            body:JSON.stringify(newData)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+           
+          if (data) {
+           
+            alert('your register place successfully')
+          }
+        })
+        
+        console.log(data)
+    }
+    
 
     return (
         <section className="container row">
@@ -30,15 +50,15 @@ const CustomarOder = () => {
 
                     </div>
                     <div className="form-group">
-                        <input type="text" ref={register({ required: true })} name="email" placeholder=" Your Email Address" className="form-control" />
+                        <input type="email" ref={register({ required: true })} name="email" placeholder=" Your Email Address" defaultValue={loggedInUser.email} className="form-control" />
                         {errors.email && <span className="text-danger">This field is required</span>}
                     </div>
                     <div className="form-group">
-                        <input type="text" ref={register({ required: true })} name="service" placeholder="Service" className="form-control" />
+                        <input type="text" ref={register({ required: true })} name="service" defaultValue={cardInfo.title} placeholder="Service" className="form-control" />
                         {errors.service && <span className="text-danger">This field is required</span>}
                     </div>
                     <div className="form-group">
-                        <textarea type="text" ref={register({ required: true })} cols="30px" rows="10px" name="Details" placeholder="Product Details" className="form-control" />
+                        <textarea type="text" ref={register({ required: true })} cols="30px" rows="10px" name="Details" defaultValue={cardInfo.description} placeholder="Product Details" className="form-control" />
                         {errors.Details && <span className="text-danger">This field is required</span>}
                     </div>
                     <div className="form-group">
