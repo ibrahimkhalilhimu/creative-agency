@@ -1,10 +1,12 @@
-import React,{useState} from 'react';
+import React,{useContext, useState} from 'react';
 import logo from '../../../images/logos/logo.png'
 import {Link} from "react-router-dom";
 import { useLocation} from 'react-router-dom';
+import {UserContext} from '../../../App'
 
 const ShareNav = () => {
   let location = useLocation();
+  const [loggedInUser,setLoggedInUser] = useContext(UserContext)
 
     return (
         <div className="container">
@@ -38,7 +40,7 @@ const ShareNav = () => {
     }
  
  
-      <Link className="nav-link pr-4" to="#">Pro Rasal</Link>
+  <Link className="nav-link pr-4" to="#">{loggedInUser.name}</Link>
       
     </div>
   </div>

@@ -8,7 +8,7 @@ import ServicesCard from './ServicesCard';
     
    const [servicesData,setServicesData] = useState([])
    useEffect(()=>{
-    fetch('http://localhost:5000/service')
+    fetch('https://immense-everglades-41028.herokuapp.com/service')
     .then(res => res.json())
     .then(data=> setServicesData(data))
 },[])
@@ -22,7 +22,7 @@ import ServicesCard from './ServicesCard';
                 </div>
                 <div  className="card-deck row py-5">
                     {
-                        servicesData.map(data=><ServicesCard data={data}></ServicesCard>)
+                        servicesData.map(data=><ServicesCard data={data} key={data._id}></ServicesCard>)
                     }
                 </div>
             </div>

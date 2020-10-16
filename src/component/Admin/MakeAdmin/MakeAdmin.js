@@ -1,21 +1,40 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm} from "react-hook-form";
+import { UserContext } from '../../../App';
 import Sidebar from '../../Customer/Sidebar/Sidebar';
 import ShareNav from '../../Shared/ShareNav/ShareNav';
-import AddminSidebar from '../AddminSidebar/AddminSidebar';
 
 const MakeAdmin = () => {
     const { register, handleSubmit, watch, errors } = useForm();
-    const onSubmit = data => console.log(data);
+    const [loggedInUser,setLoggedInUser] = useContext(UserContext)
+    const onSubmit = data => {
+        fetch('https://immense-everglades-41028.herokuapp.com/makeAdmin',{
+            method:'POST',
+            headers:{ 
+                'Content-Type':'application/json'
+            },
+            body:JSON.stringify(data)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+           
+          if (data) {
+           
+            alert('your register place successfully')
+          }
+        })
+        console.log(data)
+    };
     return (
-        <section className="container row">
+        <section className="container ">
+            <div className="row">
           <ShareNav></ShareNav>  
-          <div className="col-md-4">
+          <div className="col-md-2">
               <Sidebar></Sidebar>
           </div>
-          <div className="col-md-8 pt-5">
+          <div style={{backgroundColor:"#E5E5E5",height:"600px",width:"100%"}} className="col-md-10">
           <form className="" onSubmit={handleSubmit(onSubmit)}>
-                    <div className="form-group">
+                    <div className="form-group mt-5">
                         <h4>Email</h4>
                         <input type="email" ref={register({ required: true })} name="email" placeholder="@gmail.com" className="form-control" />
                         {errors.name && <span className="text-danger">This field is required</span>}
@@ -24,6 +43,7 @@ const MakeAdmin = () => {
                         <button type="submit" className="btn bg-primary text-white">Submit</button>
                     </div>
                 </form>
+                </div>
           </div>
         </section>
     );

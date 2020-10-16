@@ -8,7 +8,7 @@ const Feedback = () => {
  const [feedbackData,setFeedbackData] = useState([])
 
  useEffect(()=>{
-    fetch('http://localhost:5000/review')
+    fetch('https://immense-everglades-41028.herokuapp.com/review')
     .then(res => res.json())
     .then(data=> 
         setFeedbackData(data))
@@ -20,7 +20,7 @@ const Feedback = () => {
                <h2><b>Clients<span style={{color:"#7AB259"}}> Feedback</span></b> </h2>
                <div className="row py-5 my-5">
                 {
-                    feedbackData.map(info=><FeedbackCard info={info}></FeedbackCard>)
+                    feedbackData.map(info=><FeedbackCard info={info} key={info._id}></FeedbackCard>)
                 }
                </div>
                </div> 

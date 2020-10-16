@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { UserCardInfo } from '../../../App';
 const ServicesCard = (props) => {
-  console.log(props);
+
 const [cardInfo,setCardInfo] = useContext(UserCardInfo)
 
 const {title,description,img,image} = props.data

@@ -2,7 +2,6 @@ import React from 'react';
 import { useState } from 'react';
 import Sidebar from '../../Customer/Sidebar/Sidebar';
 import ShareNav from '../../Shared/ShareNav/ShareNav';
-import AddminSidebar from '../AddminSidebar/AddminSidebar';
 
 const AddService = () => {
     const [info, setInfo] = useState({});
@@ -23,7 +22,7 @@ const AddService = () => {
   formData.append('title', info.title)
   formData.append('description', info.description)
 
-  fetch('http://localhost:5000/addServices', {
+  fetch('https://immense-everglades-41028.herokuapp.com/addServices', {
     method: 'POST',
     body: formData
   })
@@ -39,14 +38,15 @@ const AddService = () => {
         }
    
     return (
-        <section className="container row">
+        <section className="container ">
+            <div className="row">
             <ShareNav></ShareNav>
-           <div className="col-md-4 ">
+           <div className="col-md-2 ">
                <Sidebar></Sidebar>
                </div>
-               <div className="col-md-8 pt-5">
+               <div style={{backgroundColor:"#E5E5E5",height:"600px",width:"100%"}} className="col-md-10 ">
                <form onSubmit={handleSubmit}>
-                    <div className="form-group">
+                    <div className="form-group pt-5">
                         <label htmlFor="exampleInputText">Service Title</label>
                         <input onBlur={handleBlur} type="text" className="form-control" name="title" placeholder="Service Title" />
                     </div>
@@ -61,7 +61,7 @@ const AddService = () => {
                     <button type="submit" className="btn btn-dark">Submit</button>
                 </form>
                </div>
-           
+               </div>
         </section>
     );
 };

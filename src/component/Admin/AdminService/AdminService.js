@@ -1,49 +1,54 @@
 import React, { useEffect, useState } from 'react';
 import ShareNav from '../../Shared/ShareNav/ShareNav';
-import AddminSidebar from '../../Admin/AddminSidebar/AddminSidebar'
 import Sidebar from '../../Customer/Sidebar/Sidebar';
 const AdminService = () => {
   const [orderList,setOderList] = useState([])
    
     useEffect(()=>{
-        fetch('http://localhost:5000/orders')
+        fetch('https://immense-everglades-41028.herokuapp.com/order')
         .then(res => res.json())
         .then(data=>{
-          console.log(data);
+        
           setOderList(data)
         })
       },[])
     return (
-        <section className="container row">
+        <section className="container ">
             <ShareNav></ShareNav>
-            <div className="col-md-3">
+            <div className="row">
+            <div className="col-md-2">
                <Sidebar></Sidebar>
                 </div>
-                <div  className="col-md-9 pt-5">
+                <div  className="col-md-10 pt-5">
              {
                orderList.map(data=>
-               <table class="table table-borderless w-100">
+               
+               <table className="table table-borderless" >
+              
                <thead>
                  <tr>
-                   <th scope="col">Name</th>
+                   <th style={{width:"120px"}} scope="col">Name</th>
                    <th scope="col">Email ID</th>
-                   <th scope="col">Service</th>
-                   <th scope="col">Project Details</th>
+                   <th  style={{width:"180px"}} scope="col">Service</th>
+                   <th  scope="col">Project Details</th>
                  </tr>
                </thead>
                <tbody>
                  <tr>
-               <th>{data.data.name}</th>
-               <td>{data.data.email}</td>
-               <td>{data.data.service}</td>
+               <th scope="row" >{data.data.name}</th>
+               <td >{data.data.email}</td>
+               <td >{data.data.service}</td>
                <td>{data.data.Details}</td>
                  </tr>
                  </tbody>
+                
               </table>
+             
                  )
+               
              }
              </div>
-          
+             </div>
         </section>
     );
 };

@@ -57,7 +57,6 @@ const Login = () => {
               </div>
 
           </div>
-    <h1>email:{loggedInUser.email}</h1>
       </div>
     );
 };

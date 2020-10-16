@@ -13,9 +13,9 @@ const CustomarOder = () => {
     const [loggedInUser,setLoggedInUser] = useContext(UserContext)
     const { register, handleSubmit, watch, errors } = useForm();
     const onSubmit = data => {
-        const newData ={...cardInfo, data}
+        const newData ={...loggedInUser,cardInfo, data}
 
-        fetch('http://localhost:5000/addOder',{
+        fetch('https://immense-everglades-41028.herokuapp.com/addOder',{
             method:'POST',
             headers:{ 
                 'Content-Type':'application/json'
@@ -36,15 +36,15 @@ const CustomarOder = () => {
     
 
     return (
-        <section className="container row">
+        <section className="container ">
            <ShareNav></ShareNav>
-            
-                <div className=" col-md-4">
+            <div className="row">
+                <div className=" col-md-2">
             <Sidebar></Sidebar>
             </div>
-            <div style={{backgroundColor:"#E5E5E5",height:"100%"}} className="col-md-8   pt-5">
+            <div style={{backgroundColor:"#E5E5E5",height:"600px",width:"100%"}} className="col-md-10 ">
             <form className="" onSubmit={handleSubmit(onSubmit)}>
-                    <div className="form-group">
+                    <div className="form-group mt-5  pt-5">
                         <input type="text" ref={register({ required: true })} name="name" placeholder="Your Name/company name" className="form-control" />
                         {errors.name && <span className="text-danger">This field is required</span>}
 
@@ -71,7 +71,7 @@ const CustomarOder = () => {
                     </div>
                 </form>
             </div>
-            
+            </div>
         </section>
     );
 };
