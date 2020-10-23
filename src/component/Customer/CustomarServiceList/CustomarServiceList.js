@@ -28,7 +28,7 @@ const CustomarServiceList = () => {
                    <div className="row">
                        {
                            order.map(data=>
-                            <div className="col-md-6">
+                            <div className="col-md-6 pt-5">
                            <div className="card">
                           {
                           data.cardInfo.image ? <img style={{width:'74px'}}  className="" src={`data:image/png;base64,${data.cardInfo.image.img}`}/>:

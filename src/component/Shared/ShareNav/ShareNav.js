@@ -10,8 +10,8 @@ const ShareNav = () => {
 
     return (
         <div className="container">
-        <nav className="navbar navbar-expand-lg navbar-light ">
-  <Link className="navbar-brand" to="home">
+        <nav className="navbar navbar-expand-lg navbar-light">
+  <Link className="navbar-brand" to="/home">
       <img style={{width:"150px"}} src={logo} alt=""/>
   </Link>
   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,8 +40,8 @@ const ShareNav = () => {
     }
  
  
-  <Link className="nav-link pr-4" to="#">{loggedInUser.name}</Link>
-      
+  <Link className="nav-link pr-5 mr-5" to="#">{loggedInUser.name}</Link>
+    <img style={{width:"60px"}} src={loggedInUser.photoURL} className="rounded-circle nav-link  " alt=""/>
     </div>
   </div>
 </nav>

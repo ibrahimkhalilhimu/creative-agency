@@ -27,10 +27,11 @@ const Login = () => {
         firebase.auth().signInWithPopup(provider)
         .then(function(result) {
 
-            var {displayName,email} = result.user;
-            const signInUser = {name:displayName,email}
+            var {displayName,email,photoURL} = result.user;
+            const signInUser = {name:displayName,email,photoURL}
             setLoggedInUser(signInUser)
              history.replace(from);
+            
             
           })
           .catch(function(error) {
@@ -44,10 +45,14 @@ const Login = () => {
           });
     }
 
+   
+
+    
+
     return (
         <div className="text-center">
         <Link to="home" > <img src={logo} alt=""/> </Link>
-          <div className="box">
+          <div className="box ">
               <div className="boxText m-auto">
               <h3>LogIn With</h3>
               <div className="py-4">

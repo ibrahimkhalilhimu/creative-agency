@@ -1,5 +1,7 @@
 .header-container{
-    height: 718px;
+  
+    height: 684.53px;
     background-color: #FBD062;
-    clip-path: unset;
+    clip-path: polygon(100% 0, 100% 85%, 0 100%, 0 0);
+    
 }

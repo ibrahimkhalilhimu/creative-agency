@@ -19,10 +19,11 @@ const AdminService = () => {
             <div className="col-md-2">
                <Sidebar></Sidebar>
                 </div>
-                <div  className="col-md-10 pt-5">
+                <div  className="col-md-10  pt-5">
              {
-               orderList.map(data=>
-               
+               orderList.map(data=> 
+             
+                
                <table className="table table-borderless" >
               
                <thead>
@@ -43,10 +44,13 @@ const AdminService = () => {
                  </tbody>
                 
               </table>
-             
-                 )
+
+              
+               ) 
+            }
+                 
                
-             }
+             
              </div>
              </div>
         </section>

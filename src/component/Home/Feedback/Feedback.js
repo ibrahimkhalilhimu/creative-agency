@@ -19,6 +19,9 @@ const Feedback = () => {
            <div className="container text-center">
                <h2><b>Clients<span style={{color:"#7AB259"}}> Feedback</span></b> </h2>
                <div className="row py-5 my-5">
+               {
+                        feedbackData.length === 0 && <h3 className="loader text-center mx-auto">Loading...</h3>
+                    }
                 {
                     feedbackData.map(info=><FeedbackCard info={info} key={info._id}></FeedbackCard>)
                 }

@@ -7,10 +7,11 @@ import { useContext } from 'react';
 import { UserContext } from '../../../App';
 
 const Sidebar = () => {
-    const [loggedInUser,setLoggedInUser] = useContext(UserContext)
-    const [isAdmin,setIsAdmin] = useState(false)
+    const [loggedInUser,setLoggedInUser, isAdmin,setIsAdmin] = useContext(UserContext)
+ 
 
     useEffect(()=>{
+        
         fetch('https://immense-everglades-41028.herokuapp.com/isAdmin',{
             method:'POST',
             headers:{'content-type':'application/json'},
@@ -19,6 +20,7 @@ const Sidebar = () => {
         .then(res => res.json())
         .then(data=>{setIsAdmin(data)})
     },[])
+    console.log(isAdmin);
     return (
        
              <div className="sidebar d-flex flex-column justify-content-between  py-5 px-4" style={{height:"100%"}}>

@@ -23,10 +23,12 @@ function App() {
 
   const [loggedInUser,setLoggedInUser] = useState({success:false})
   const [cardInfo,setCardInfo]= useState({})
+  const [isAdmin,setIsAdmin] = useState(false)
+
   return (
     <div className="div">
       <UserCardInfo.Provider value ={[cardInfo,setCardInfo]}>
-    <UserContext.Provider value={[loggedInUser,setLoggedInUser]}>
+    <UserContext.Provider value={[loggedInUser,setLoggedInUser , isAdmin,setIsAdmin] }>
      <Router>
   
        <Switch>

@@ -9,7 +9,7 @@ const CompanyLogo = () => {
     return (
         <section className="pt-5">
            <div className="container offset-md-1">
-           <div className="row ">
+           <div className="row text-center">
               <div className="col-md-2">
                 <img className="img-fluid" style={{width:"140px"}} src={slack} alt=""/>
               </div>

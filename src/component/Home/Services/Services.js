@@ -22,9 +22,12 @@ import ServicesCard from './ServicesCard';
                 </div>
                 <div  className="card-deck row py-5">
                     {
+                        servicesData.length === 0 && <h3 className="loader text-center mx-auto">Loading...</h3>
+                    }
+                    {
                         servicesData.map(data=><ServicesCard data={data} key={data._id}></ServicesCard>)
                     }
-                </div>
+           </div>
             </div>
         </section>
     );

@@ -28,7 +28,7 @@ const Footer = () => {
             </div>
             </div>
             </div>
-            <p className="text-center text-secondary pt-4">copyright Orange labs 2020</p>
+            <p className="text-center text-secondary mt-5 pt-5">copyright Ibrahim Khalil Himu {(new Date().getFullYear())}</p>
         </section>
     );
 };
